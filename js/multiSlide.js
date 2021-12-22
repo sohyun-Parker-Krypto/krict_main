@@ -22,7 +22,8 @@ maxSlides=options.maxSlides,
 newSlidesWidth,
 prevBtn=slideWrapper.find('.prev'),
 nextBtn=slideWrapper.find('.next'),
-pauseBtn=slideWrapper.find('.pause');
+pauseBtn=$('.pauseBtn');
+playBtn=$('.playBtn');
 
 newSlidesWidth=slideWidth;
 
@@ -50,15 +51,6 @@ function setSlidePos(){
 }
 setSlidePos();
 
-prevBtn.click(function(){
-    moveSlide(currentIdx-1);
-})
-nextBtn.click(function(){
-    moveSlide(currentIdx+1);
-})
-pauseBtn.click(function(){
-    return false;
-})
 
 function moveSlide(num){
     slides.stop().animate({left:moveAmt*-num+'px'},500,
@@ -78,18 +70,32 @@ function autoSlide(){
             },3000)
         }
     }
-    autoSlide();
 
 function stopSlide(){
     clearInterval(timer);
     timer='';
 }
-slideWrapper.mouseenter(function(){
-    stopSlide();
+stopSlide();
+prevBtn.click(function(){
+    moveSlide(currentIdx-1);
 })
-slideWrapper.mouseleave(function(){
-    autoSlide();
-});
+nextBtn.click(function(){
+    moveSlide(currentIdx+1);
+})
+
+playBtn.click(function(){
+    pauseBtn.addClass('on');
+    playBtn.removeClass('on');
+    autoSlide()
+  })
+  
+  pauseBtn.click(function(){
+    pauseBtn.removeClass('on');
+    playBtn.addClass('on');
+    stopSlide()
+  })
+
+
 
 
 }//--fn.multiSlide

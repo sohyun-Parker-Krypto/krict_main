@@ -1261,15 +1261,35 @@ li.siteMap::before {
   width: 9px;
   height: 11px;
 }
+#box2 .slidebox .contBtn .contPause span{
+  background-size: auto;
+  width: 12px;
+  height: 18px;
+  position: absolute;
+
+  display: none;
+}
+#box2 .slidebox .contBtn .contPause span.on{
+  display: block;
+}
+.contPause .pause{
+  background: url(../images/pause_ir.png) no-repeat 0 -4px;
+  top: 10%;
+  left: 33%;
+}
+.contPause .play{
+  background: url(../images/pause_ir.png) no-repeat -25px 0px;
+  top: 0%;
+  left: 36%;
+}
 
 #box2 .slidebox .slidelist {
   width: 85%;
   padding-left: 0.8rem;
   box-sizing: border-box;
+  position: relative;
 }
-#box2 .slidebox .slidelist li.item.active {
-  display: block;
-}
+
 #box2 .slidebox .slidelist li.item {
   display: block;
   width: 250px;
@@ -1839,15 +1859,29 @@ li.siteMap::before {
   display: inline-block;
   margin-left: 2px;
   cursor: pointer;
+  position: relative;
 }
 
+.controls span.pause > span{
+  position: absolute;
+  width: 12px;
+  height: 18px;
+  display: none;
+}
+.controls span.pause > span.on{
+  display: block;
+}
 .controls span.pauseBtn {
   text-indent: -9999px;
-  display: block;
   background: url(../images/pause_ir.png) no-repeat 0 -4px;
-  width: 12px;
-  height: 10px;
-  margin: 16px auto 0;
+  top: 35%;
+  left: 30%;
+}
+.controls span.playBtn {
+  text-indent: -9999px;
+  background: url(../images/pause_ir.png) no-repeat -25px 0px;
+  top: 25%;
+  left: 30%;
 }
 
 #newsMenu li.control p {
